@@ -1,0 +1,390 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>月度销售分析报告</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei",sans-serif;background:#f5f7fa;color:#333;font-size:14px;line-height:1.8}
+.cover{background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;padding:80px 20px;text-align:center;min-height:50vh;display:flex;flex-direction:column;justify-content:center}
+.cover h1{font-size:2em;margin-bottom:15px}
+.cover p{opacity:.85;font-size:1.1em;margin-bottom:5px}
+.cover .meta{margin-top:30px;font-size:.9em;opacity:.7}
+.back-btn{position:fixed;top:15px;left:15px;color:#fff;text-decoration:none;font-size:.85em;opacity:.8;border:1px solid rgba(255,255,255,.4);padding:5px 14px;border-radius:20px;z-index:100}
+.container{max-width:960px;margin:0 auto;padding:20px}
+.section{background:#fff;border-radius:10px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
+.sec-head{background:#f0f4ff;padding:14px 20px;border-bottom:1px solid #e0e6f0}
+.sec-head h2{font-size:1.1em;color:#1a73e8}
+.sec-body{padding:20px}
+.finding{background:#e8f4fd;border-left:4px solid #1a73e8;padding:12px 16px;margin:12px 0;border-radius:0 6px 6px 0;font-size:.92em}
+.bar-row{display:flex;align-items:center;gap:10px;margin:6px 0}
+.bar-label{min-width:60px;font-size:.88em;text-align:right;color:#555}
+.bar-track{flex:1;height:22px;background:#f0f0f0;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width .5s}
+.bar-val{min-width:70px;font-size:.85em;color:#666}
+table.data-tbl{width:100%;border-collapse:collapse;font-size:.88em;margin:10px 0}
+table.data-tbl th,table.data-tbl td{padding:8px 10px;text-align:center;border:1px solid #e0e0e0}
+table.data-tbl th{background:#f0f4ff;color:#1a73e8;font-weight:600}
+table.data-tbl tr:nth-child(even){background:#fafafa}
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:15px 0}
+.chart-card{background:#fafafa;border-radius:8px;padding:15px;border:1px solid #eee}
+.chart-card h4{font-size:.95em;color:#333;margin-bottom:10px}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:15px 0}
+.kpi{background:#fff;border-radius:8px;padding:15px;text-align:center;border:1px solid #eee}
+.kpi h3{font-size:1.5em;color:#1a73e8}
+.kpi p{font-size:.8em;color:#888}
+.conclusion{background:#fff3cd;border-left:4px solid #ffc107;padding:15px;margin:15px 0;border-radius:0 6px 6px 0}
+.footer{text-align:center;padding:30px;color:#999;font-size:.85em}
+@media(max-width:768px){.chart-grid,.kpi-row{grid-template-columns:1fr}.bar-label{min-width:50px;font-size:.8em}}
+</style></head><body>
+
+<div class="cover">
+    <a href="作品集_完整版.html" class="back-btn">← 返回作品集</a>
+    <h1>📊 月度销售分析报告</h1>
+    <p>TH区（海外）产品销售数据分析 | 脱敏版本</p>
+    <div class="meta">
+        <p>数据范围：2024年1月 - 2025年12月 | 产品数量：6个</p>
+    </div>
+</div>
+
+<div class="container">
+
+<div class="section">
+    <div class="sec-head"><h2>一、整体概况</h2></div>
+    <div class="sec-body">
+        <div class="kpi-row">
+            <div class="kpi"><h3>639,801</h3><p>总销量（24个月）</p></div>
+            <div class="kpi"><h3>26,658</h3><p>月均总销量</p></div>
+            <div class="kpi"><h3>66,425</h3><p>当前总库存</p></div>
+            <div class="kpi"><h3>2.5月</h3><p>库存覆盖月数</p></div>
+        </div>
+        <div class="finding">
+            <strong>📌 发现：</strong>过去24个月总销量为639,801，月均销量26,658。当前库存66,425，可覆盖2.5个月，库存水平健康。
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-head"><h2>二、各产品销售分析</h2></div>
+    <div class="sec-body">
+        <table class="data-tbl">
+            <tr>
+                <th>产品</th>
+                <th>总销量</th>
+                <th>月均销量</th>
+                <th>最高月</th>
+                <th>最低月</th>
+                <th>YoY增长</th>
+            </tr>
+            <tr>
+                <td><strong>产品A-</strong></td>
+                <td>131,266</td>
+                <td>5,469</td>
+                <td>25.12*</td>
+                <td>24.03</td>
+                <td style="color:#28a745">+31.7%</td>
+            </tr>
+            <tr>
+                <td><strong>产品A+</strong></td>
+                <td>43,265</td>
+                <td>1,803</td>
+                <td>24.12</td>
+                <td>24.03</td>
+                <td style="color:#28a745">+26.8%</td>
+            </tr>
+            <tr>
+                <td><strong>产品B-</strong></td>
+                <td>281,492</td>
+                <td>11,729</td>
+                <td>25.12*</td>
+                <td>24.03</td>
+                <td style="color:#28a745">+20.2%</td>
+            </tr>
+            <tr>
+                <td><strong>产品B+</strong></td>
+                <td>113,974</td>
+                <td>4,749</td>
+                <td>25.12*</td>
+                <td>24.03</td>
+                <td style="color:#28a745">+13.7%</td>
+            </tr>
+            <tr>
+                <td><strong>产品C-</strong></td>
+                <td>14,976</td>
+                <td>624</td>
+                <td>25.07</td>
+                <td>24.03</td>
+                <td style="color:#28a745">+37.3%</td>
+            </tr>
+            <tr>
+                <td><strong>产品D-</strong></td>
+                <td>54,828</td>
+                <td>2,284</td>
+                <td>25.12*</td>
+                <td>24.06</td>
+                <td style="color:#28a745">+19.2%</td>
+            </tr>
+        </table>
+        <div class="finding">
+            <strong>📌 发现：</strong>产品B-销量最高，产品C-销量最低。大部分产品呈正增长趋势，需关注增长较慢的产品。
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-head"><h2>三、季节性分析</h2></div>
+    <div class="sec-body">
+        <div class="chart-grid">
+            <div class="chart-card">
+                <h4>产品A- 季度趋势</h4>
+                <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:78.9%;background:#667eea"></div></div><span class="bar-val">4,307</span></div>
+<div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:78.0%;background:#667eea"></div></div><span class="bar-val">4,257</span></div>
+<div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:89.2%;background:#667eea"></div></div><span class="bar-val">4,864</span></div>
+<div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#667eea"></div></div><span class="bar-val">5,455</span></div>
+
+            </div>
+            <div class="chart-card">
+                <h4>产品A+ 季度趋势</h4>
+                <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:74.0%;background:#764ba2"></div></div><span class="bar-val">1,448</span></div>
+<div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:68.6%;background:#764ba2"></div></div><span class="bar-val">1,342</span></div>
+<div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:82.4%;background:#764ba2"></div></div><span class="bar-val">1,612</span></div>
+<div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#764ba2"></div></div><span class="bar-val">1,957</span></div>
+
+            </div>
+            <div class="chart-card">
+                <h4>产品B- 季度趋势</h4>
+                <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:94.0%;background:#ff6b6b"></div></div><span class="bar-val">10,566</span></div>
+<div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:91.6%;background:#ff6b6b"></div></div><span class="bar-val">10,293</span></div>
+<div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:93.6%;background:#ff6b6b"></div></div><span class="bar-val">10,518</span></div>
+<div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#ff6b6b"></div></div><span class="bar-val">11,241</span></div>
+
+            </div>
+            <div class="chart-card">
+                <h4>产品B+ 季度趋势</h4>
+                <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:93.7%;background:#ffd93d"></div></div><span class="bar-val">4,347</span></div>
+<div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:97.3%;background:#ffd93d"></div></div><span class="bar-val">4,516</span></div>
+<div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:92.1%;background:#ffd93d"></div></div><span class="bar-val">4,276</span></div>
+<div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#ffd93d"></div></div><span class="bar-val">4,642</span></div>
+
+            </div>
+            <div class="chart-card">
+                <h4>产品C- 季度趋势</h4>
+                <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:88.7%;background:#28a745"></div></div><span class="bar-val">511</span></div>
+<div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:86.9%;background:#28a745"></div></div><span class="bar-val">501</span></div>
+<div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:89.4%;background:#28a745"></div></div><span class="bar-val">515</span></div>
+<div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#28a745"></div></div><span class="bar-val">576</span></div>
+
+            </div>
+            <div class="chart-card">
+                <h4>产品D- 季度趋势</h4>
+                <div class="bar-row"><span class="bar-label">Q1</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#17a2b8"></div></div><span class="bar-val">2,192</span></div>
+<div class="bar-row"><span class="bar-label">Q2</span><div class="bar-track"><div class="bar-fill" style="width:90.5%;background:#17a2b8"></div></div><span class="bar-val">1,984</span></div>
+<div class="bar-row"><span class="bar-label">Q3</span><div class="bar-track"><div class="bar-fill" style="width:90.2%;background:#17a2b8"></div></div><span class="bar-val">1,978</span></div>
+<div class="bar-row"><span class="bar-label">Q4</span><div class="bar-track"><div class="bar-fill" style="width:99.6%;background:#17a2b8"></div></div><span class="bar-val">2,184</span></div>
+
+            </div>
+
+        </div>
+        <div class="finding">
+            <strong>📌 发现：</strong>Q4（10-12月）为销售旺季，与年底节假日和新年备货相关。Q1-Q3销售相对平稳。
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-head"><h2>四、库存健康度分析</h2></div>
+    <div class="sec-body">
+        <table class="data-tbl">
+            <tr>
+                <th>产品</th>
+                <th>当前库存</th>
+                <th>可用月数</th>
+                <th>周转率</th>
+                <th>状态</th>
+            </tr>
+            <tr>
+                <td><strong>产品A-</strong></td>
+                <td>12,158</td>
+                <td>2.0月</td>
+                <td>51%</td>
+                <td style="color:#28a745">✅ 健康</td>
+            </tr>
+            <tr>
+                <td><strong>产品A+</strong></td>
+                <td>5,510</td>
+                <td>2.8月</td>
+                <td>36%</td>
+                <td style="color:#28a745">✅ 健康</td>
+            </tr>
+            <tr>
+                <td><strong>产品B-</strong></td>
+                <td>31,753</td>
+                <td>2.5月</td>
+                <td>40%</td>
+                <td style="color:#28a745">✅ 健康</td>
+            </tr>
+            <tr>
+                <td><strong>产品B+</strong></td>
+                <td>11,874</td>
+                <td>2.4月</td>
+                <td>41%</td>
+                <td style="color:#28a745">✅ 健康</td>
+            </tr>
+            <tr>
+                <td><strong>产品C-</strong></td>
+                <td>2,285</td>
+                <td>3.2月</td>
+                <td>31%</td>
+                <td style="color:#ffc107">⚠️ 库存偏高</td>
+            </tr>
+            <tr>
+                <td><strong>产品D-</strong></td>
+                <td>2,845</td>
+                <td>1.2月</td>
+                <td>83%</td>
+                <td style="color:#dc3545">⚠️ 库存偏低</td>
+            </tr>
+        </table>
+        <div class="finding">
+            <strong>📌 发现：</strong>产品D-库存覆盖仅1.2个月（⚠️ 库存偏低），需优先安排补货。产品C-库存3.2个月（⚠️ 库存偏高），应适当控制采购量。
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-head"><h2>五、趋势分析与预测</h2></div>
+    <div class="sec-body">
+        <div class="chart-grid">
+            <div class="chart-card">
+                <h4>产品A- 近12个月趋势</h4>
+                <div class="bar-row"><span class="bar-label">25.01</span><div class="bar-track"><div class="bar-fill" style="width:84.0%;background:#667eea"></div></div><span class="bar-val">6,271</span></div>
+<div class="bar-row"><span class="bar-label">25.02</span><div class="bar-track"><div class="bar-fill" style="width:83.8%;background:#667eea"></div></div><span class="bar-val">6,255</span></div>
+<div class="bar-row"><span class="bar-label">25.03</span><div class="bar-track"><div class="bar-fill" style="width:72.2%;background:#667eea"></div></div><span class="bar-val">5,387</span></div>
+<div class="bar-row"><span class="bar-label">25.04</span><div class="bar-track"><div class="bar-fill" style="width:81.4%;background:#667eea"></div></div><span class="bar-val">6,073</span></div>
+<div class="bar-row"><span class="bar-label">25.05</span><div class="bar-track"><div class="bar-fill" style="width:76.6%;background:#667eea"></div></div><span class="bar-val">5,714</span></div>
+<div class="bar-row"><span class="bar-label">25.06</span><div class="bar-track"><div class="bar-fill" style="width:75.8%;background:#667eea"></div></div><span class="bar-val">5,656</span></div>
+<div class="bar-row"><span class="bar-label">25.07</span><div class="bar-track"><div class="bar-fill" style="width:94.0%;background:#667eea"></div></div><span class="bar-val">7,017</span></div>
+<div class="bar-row"><span class="bar-label">25.08</span><div class="bar-track"><div class="bar-fill" style="width:87.4%;background:#667eea"></div></div><span class="bar-val">6,525</span></div>
+<div class="bar-row"><span class="bar-label">25.09</span><div class="bar-track"><div class="bar-fill" style="width:80.6%;background:#667eea"></div></div><span class="bar-val">6,012</span></div>
+<div class="bar-row"><span class="bar-label">25.10</span><div class="bar-track"><div class="bar-fill" style="width:85.7%;background:#667eea"></div></div><span class="bar-val">6,399</span></div>
+<div class="bar-row"><span class="bar-label">25.11</span><div class="bar-track"><div class="bar-fill" style="width:78.3%;background:#667eea"></div></div><span class="bar-val">5,845</span></div>
+<div class="bar-row"><span class="bar-label">25.12*</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#667eea"></div></div><span class="bar-val">7,463</span></div>
+
+            </div>
+            <div class="chart-card">
+                <h4>产品A+ 近12个月趋势</h4>
+                <div class="bar-row"><span class="bar-label">25.01</span><div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#764ba2"></div></div><span class="bar-val">1,952</span></div>
+<div class="bar-row"><span class="bar-label">25.02</span><div class="bar-track"><div class="bar-fill" style="width:89.8%;background:#764ba2"></div></div><span class="bar-val">2,193</span></div>
+<div class="bar-row"><span class="bar-label">25.03</span><div class="bar-track"><div class="bar-fill" style="width:71.8%;background:#764ba2"></div></div><span class="bar-val">1,752</span></div>
+<div class="bar-row"><span class="bar-label">25.04</span><div class="bar-track"><div class="bar-fill" style="width:80.8%;background:#764ba2"></div></div><span class="bar-val">1,972</span></div>
+<div class="bar-row"><span class="bar-label">25.05</span><div class="bar-track"><div class="bar-fill" style="width:76.2%;background:#764ba2"></div></div><span class="bar-val">1,860</span></div>
+<div class="bar-row"><span class="bar-label">25.06</span><div class="bar-track"><div class="bar-fill" style="width:73.3%;background:#764ba2"></div></div><span class="bar-val">1,789</span></div>
+<div class="bar-row"><span class="bar-label">25.07</span><div class="bar-track"><div class="bar-fill" style="width:91.9%;background:#764ba2"></div></div><span class="bar-val">2,243</span></div>
+<div class="bar-row"><span class="bar-label">25.08</span><div class="bar-track"><div class="bar-fill" style="width:81.1%;background:#764ba2"></div></div><span class="bar-val">1,980</span></div>
+<div class="bar-row"><span class="bar-label">25.09</span><div class="bar-track"><div class="bar-fill" style="width:79.1%;background:#764ba2"></div></div><span class="bar-val">1,930</span></div>
+<div class="bar-row"><span class="bar-label">25.10</span><div class="bar-track"><div class="bar-fill" style="width:88.8%;background:#764ba2"></div></div><span class="bar-val">2,168</span></div>
+<div class="bar-row"><span class="bar-label">25.11</span><div class="bar-track"><div class="bar-fill" style="width:78.1%;background:#764ba2"></div></div><span class="bar-val">1,907</span></div>
+<div class="bar-row"><span class="bar-label">25.12*</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#764ba2"></div></div><span class="bar-val">2,441</span></div>
+
+            </div>
+            <div class="chart-card">
+                <h4>产品B- 近12个月趋势</h4>
+                <div class="bar-row"><span class="bar-label">25.01</span><div class="bar-track"><div class="bar-fill" style="width:78.4%;background:#ff6b6b"></div></div><span class="bar-val">12,697</span></div>
+<div class="bar-row"><span class="bar-label">25.02</span><div class="bar-track"><div class="bar-fill" style="width:77.5%;background:#ff6b6b"></div></div><span class="bar-val">12,552</span></div>
+<div class="bar-row"><span class="bar-label">25.03</span><div class="bar-track"><div class="bar-fill" style="width:70.2%;background:#ff6b6b"></div></div><span class="bar-val">11,364</span></div>
+<div class="bar-row"><span class="bar-label">25.04</span><div class="bar-track"><div class="bar-fill" style="width:83.3%;background:#ff6b6b"></div></div><span class="bar-val">13,486</span></div>
+<div class="bar-row"><span class="bar-label">25.05</span><div class="bar-track"><div class="bar-fill" style="width:75.0%;background:#ff6b6b"></div></div><span class="bar-val">12,142</span></div>
+<div class="bar-row"><span class="bar-label">25.06</span><div class="bar-track"><div class="bar-fill" style="width:73.0%;background:#ff6b6b"></div></div><span class="bar-val">11,824</span></div>
+<div class="bar-row"><span class="bar-label">25.07</span><div class="bar-track"><div class="bar-fill" style="width:82.1%;background:#ff6b6b"></div></div><span class="bar-val">13,290</span></div>
+<div class="bar-row"><span class="bar-label">25.08</span><div class="bar-track"><div class="bar-fill" style="width:79.8%;background:#ff6b6b"></div></div><span class="bar-val">12,930</span></div>
+<div class="bar-row"><span class="bar-label">25.09</span><div class="bar-track"><div class="bar-fill" style="width:76.2%;background:#ff6b6b"></div></div><span class="bar-val">12,342</span></div>
+<div class="bar-row"><span class="bar-label">25.10</span><div class="bar-track"><div class="bar-fill" style="width:77.2%;background:#ff6b6b"></div></div><span class="bar-val">12,499</span></div>
+<div class="bar-row"><span class="bar-label">25.11</span><div class="bar-track"><div class="bar-fill" style="width:76.1%;background:#ff6b6b"></div></div><span class="bar-val">12,320</span></div>
+<div class="bar-row"><span class="bar-label">25.12*</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#ff6b6b"></div></div><span class="bar-val">16,193</span></div>
+
+            </div>
+            <div class="chart-card">
+                <h4>产品B+ 近12个月趋势</h4>
+                <div class="bar-row"><span class="bar-label">25.01</span><div class="bar-track"><div class="bar-fill" style="width:80.7%;background:#ffd93d"></div></div><span class="bar-val">5,238</span></div>
+<div class="bar-row"><span class="bar-label">25.02</span><div class="bar-track"><div class="bar-fill" style="width:79.5%;background:#ffd93d"></div></div><span class="bar-val">5,163</span></div>
+<div class="bar-row"><span class="bar-label">25.03</span><div class="bar-track"><div class="bar-fill" style="width:73.2%;background:#ffd93d"></div></div><span class="bar-val">4,749</span></div>
+<div class="bar-row"><span class="bar-label">25.04</span><div class="bar-track"><div class="bar-fill" style="width:82.3%;background:#ffd93d"></div></div><span class="bar-val">5,341</span></div>
+<div class="bar-row"><span class="bar-label">25.05</span><div class="bar-track"><div class="bar-fill" style="width:73.4%;background:#ffd93d"></div></div><span class="bar-val">4,764</span></div>
+<div class="bar-row"><span class="bar-label">25.06</span><div class="bar-track"><div class="bar-fill" style="width:66.8%;background:#ffd93d"></div></div><span class="bar-val">4,335</span></div>
+<div class="bar-row"><span class="bar-label">25.07</span><div class="bar-track"><div class="bar-fill" style="width:79.5%;background:#ffd93d"></div></div><span class="bar-val">5,162</span></div>
+<div class="bar-row"><span class="bar-label">25.08</span><div class="bar-track"><div class="bar-fill" style="width:76.9%;background:#ffd93d"></div></div><span class="bar-val">4,992</span></div>
+<div class="bar-row"><span class="bar-label">25.09</span><div class="bar-track"><div class="bar-fill" style="width:72.5%;background:#ffd93d"></div></div><span class="bar-val">4,706</span></div>
+<div class="bar-row"><span class="bar-label">25.10</span><div class="bar-track"><div class="bar-fill" style="width:76.5%;background:#ffd93d"></div></div><span class="bar-val">4,965</span></div>
+<div class="bar-row"><span class="bar-label">25.11</span><div class="bar-track"><div class="bar-fill" style="width:72.8%;background:#ffd93d"></div></div><span class="bar-val">4,725</span></div>
+<div class="bar-row"><span class="bar-label">25.12*</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#ffd93d"></div></div><span class="bar-val">6,492</span></div>
+
+            </div>
+            <div class="chart-card">
+                <h4>产品C- 近12个月趋势</h4>
+                <div class="bar-row"><span class="bar-label">25.01</span><div class="bar-track"><div class="bar-fill" style="width:89.1%;background:#28a745"></div></div><span class="bar-val">776</span></div>
+<div class="bar-row"><span class="bar-label">25.02</span><div class="bar-track"><div class="bar-fill" style="width:96.2%;background:#28a745"></div></div><span class="bar-val">838</span></div>
+<div class="bar-row"><span class="bar-label">25.03</span><div class="bar-track"><div class="bar-fill" style="width:75.4%;background:#28a745"></div></div><span class="bar-val">657</span></div>
+<div class="bar-row"><span class="bar-label">25.04</span><div class="bar-track"><div class="bar-fill" style="width:78.1%;background:#28a745"></div></div><span class="bar-val">680</span></div>
+<div class="bar-row"><span class="bar-label">25.05</span><div class="bar-track"><div class="bar-fill" style="width:80.8%;background:#28a745"></div></div><span class="bar-val">704</span></div>
+<div class="bar-row"><span class="bar-label">25.06</span><div class="bar-track"><div class="bar-fill" style="width:72.4%;background:#28a745"></div></div><span class="bar-val">631</span></div>
+<div class="bar-row"><span class="bar-label">25.07</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#28a745"></div></div><span class="bar-val">871</span></div>
+<div class="bar-row"><span class="bar-label">25.08</span><div class="bar-track"><div class="bar-fill" style="width:82.4%;background:#28a745"></div></div><span class="bar-val">718</span></div>
+<div class="bar-row"><span class="bar-label">25.09</span><div class="bar-track"><div class="bar-fill" style="width:79.2%;background:#28a745"></div></div><span class="bar-val">690</span></div>
+<div class="bar-row"><span class="bar-label">25.10</span><div class="bar-track"><div class="bar-fill" style="width:80.8%;background:#28a745"></div></div><span class="bar-val">704</span></div>
+<div class="bar-row"><span class="bar-label">25.11</span><div class="bar-track"><div class="bar-fill" style="width:80.4%;background:#28a745"></div></div><span class="bar-val">700</span></div>
+<div class="bar-row"><span class="bar-label">25.12*</span><div class="bar-track"><div class="bar-fill" style="width:79.8%;background:#28a745"></div></div><span class="bar-val">695</span></div>
+
+            </div>
+            <div class="chart-card">
+                <h4>产品D- 近12个月趋势</h4>
+                <div class="bar-row"><span class="bar-label">25.01</span><div class="bar-track"><div class="bar-fill" style="width:87.6%;background:#17a2b8"></div></div><span class="bar-val">2,565</span></div>
+<div class="bar-row"><span class="bar-label">25.02</span><div class="bar-track"><div class="bar-fill" style="width:88.3%;background:#17a2b8"></div></div><span class="bar-val">2,584</span></div>
+<div class="bar-row"><span class="bar-label">25.03</span><div class="bar-track"><div class="bar-fill" style="width:84.1%;background:#17a2b8"></div></div><span class="bar-val">2,461</span></div>
+<div class="bar-row"><span class="bar-label">25.04</span><div class="bar-track"><div class="bar-fill" style="width:86.9%;background:#17a2b8"></div></div><span class="bar-val">2,544</span></div>
+<div class="bar-row"><span class="bar-label">25.05</span><div class="bar-track"><div class="bar-fill" style="width:78.6%;background:#17a2b8"></div></div><span class="bar-val">2,302</span></div>
+<div class="bar-row"><span class="bar-label">25.06</span><div class="bar-track"><div class="bar-fill" style="width:71.9%;background:#17a2b8"></div></div><span class="bar-val">2,104</span></div>
+<div class="bar-row"><span class="bar-label">25.07</span><div class="bar-track"><div class="bar-fill" style="width:84.9%;background:#17a2b8"></div></div><span class="bar-val">2,485</span></div>
+<div class="bar-row"><span class="bar-label">25.08</span><div class="bar-track"><div class="bar-fill" style="width:84.3%;background:#17a2b8"></div></div><span class="bar-val">2,466</span></div>
+<div class="bar-row"><span class="bar-label">25.09</span><div class="bar-track"><div class="bar-fill" style="width:76.7%;background:#17a2b8"></div></div><span class="bar-val">2,246</span></div>
+<div class="bar-row"><span class="bar-label">25.10</span><div class="bar-track"><div class="bar-fill" style="width:87.2%;background:#17a2b8"></div></div><span class="bar-val">2,552</span></div>
+<div class="bar-row"><span class="bar-label">25.11</span><div class="bar-track"><div class="bar-fill" style="width:88.0%;background:#17a2b8"></div></div><span class="bar-val">2,575</span></div>
+<div class="bar-row"><span class="bar-label">25.12*</span><div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#17a2b8"></div></div><span class="bar-val">2,927</span></div>
+
+            </div>
+
+        </div>
+        <div class="finding">
+            <strong>📌 发现：</strong>25.12为前10天数据×3预估，实际销量可能略低。需持续监控12月实际完成情况。
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-head"><h2>六、结论与建议</h2></div>
+    <div class="sec-body">
+        <div class="conclusion">
+            <strong>📋 主要结论：</strong>
+            <ol style="margin-top:8px;padding-left:20px">
+                <li>整体销售呈正增长趋势，Q4为销售旺季</li>
+                <li>产品B-为主力产品，销量占比最高</li>
+                <li>产品D-库存偏低，需优先补货</li>
+                <li>产品C-库存充足，可适当控制采购</li>
+                <li>12月数据为预估值，需持续跟踪实际完成</li>
+            </ol>
+        </div>
+        <div class="conclusion" style="border-left-color:#28a745;background:#d4edda">
+            <strong>💡 建议：</strong>
+            <ol style="margin-top:8px;padding-left:20px">
+                <li>产品D-：立即安排补货，确保库存覆盖2个月以上</li>
+                <li>产品B-：关注Q4旺季需求，提前备货</li>
+                <li>产品C-：控制采购节奏，避免库存积压</li>
+                <li>建立月度销售预测模型，提高备货准确性</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="footer">
+    <p>月度销售分析报告</p>
+    <p style="margin-top:5px;font-size:.8em">声明：本数据已脱敏处理，仅用于展示分析能力</p>
+</div></body></html>
