@@ -1,0 +1,788 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ada - 数据分析 | 供应链计划</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+        
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 100px 20px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s;
+        }
+        
+        .hero .description {
+            font-size: 1.1em;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.4s;
+        }
+        
+        .hero .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 1s ease 0.6s;
+        }
+        
+        .btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        /* 通用区域样式 */
+        .section {
+            padding: 100px 20px;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        
+        /* 关于我 */
+        .about {
+            background: #f8f9fa;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+        }
+        
+        /* 项目展示 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+        }
+        
+        .project-header h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .project-header p {
+            opacity: 0.9;
+            font-size: 0.95em;
+        }
+        
+        .project-body {
+            padding: 30px;
+        }
+        
+        .project-body h4 {
+            color: #667eea;
+            margin: 20px 0 10px;
+            font-size: 1.1em;
+        }
+        
+        .project-body h4:first-child {
+            margin-top: 0;
+        }
+        
+        .project-body ul {
+            padding-left: 20px;
+            color: #555;
+        }
+        
+        .project-body li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .project-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-badge {
+            background: #f0f0ff;
+            color: #667eea;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        /* 作品展示 - 可切换标签 */
+        .portfolio-section {
+            background: #f8f9fa;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            border: 2px solid #667eea;
+            background: transparent;
+            color: #667eea;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .tab-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+        }
+        
+        .portfolio-info {
+            padding: 20px;
+        }
+        
+        .portfolio-info h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-info p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        /* 联系方式 */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact .section-title {
+            color: white;
+        }
+        
+        .contact .section-title::after {
+            background: white;
+        }
+        
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        
+        .contact-card p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Ada</a>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#projects">项目经历</a></li>
+                <li><a href="#portfolio">作品展示</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Ada</h1>
+            <div class="subtitle">数据分析 | 供应链计划 | 统计学专业</div>
+            <div class="description">
+                1年数据分析实战经验，擅长用数据驱动业务决策<br>
+                细心、耐心、善于从数据中发现问题
+            </div>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">查看项目</a>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- 关于我 -->
+    <section class="section about" id="about">
+        <div class="section-container">
+            <h2 class="section-title fade-in">关于我</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>👋 你好，我是Ada</h3>
+                    <p>统计学专业毕业，1年数据分析实战经验。擅长用Excel处理大量数据，具备数据清洗、建模、可视化全流程能力。</p>
+                    <p>在上一份工作中，我负责海外7个工厂的库存数据分析，建立了完整的监控体系，通过数据分析推动业务改进，实现运费下降5%。</p>
+                    <p>我相信数据的力量，善于从复杂的数据中发现问题，并提出可落地的解决方案。</p>
+                </div>
+                <div class="skills-grid fade-in">
+                    <div class="skill-item">
+                        <div class="skill-icon">📊</div>
+                        <div>
+                            <strong>Excel</strong>
+                            <p>透视表、VLOOKUP、函数</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">💾</div>
+                        <div>
+                            <strong>SQL</strong>
+                            <p>数据查询、基础操作</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">📈</div>
+                        <div>
+                            <strong>SPSS</strong>
+                            <p>统计分析、建模</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🐍</div>
+                        <div>
+                            <strong>Python</strong>
+                            <p>基础数据处理</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">📉</div>
+                        <div>
+                            <strong>数据可视化</strong>
+                            <p>图表、看板设计</p>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">🔍</div>
+                        <div>
+                            <strong>业务分析</strong>
+                            <p>指标体系、异常预警</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 项目经历 -->
+    <section class="section" id="projects">
+        <div class="section-container">
+            <h2 class="section-title fade-in">项目经历</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3>📊 库存监控体系搭建</h3>
+                        <p>某眼镜贸易企业（海外供应链）| 2025.04 – 2026.01</p>
+                    </div>
+                    <div class="project-body">
+                        <h4>项目背景</h4>
+                        <p>负责海外多工厂库存管理，需建立统一监控体系以提升异常发现效率。</p>
+                        
+                        <h4>我的工作</h4>
+                        <ul>
+                            <li>设计库存监控指标体系（周转率、缺货率、呆滞率）</li>
+                            <li>用Excel建立数据看板，实时追踪关键指标</li>
+                            <li>设置预警阈值，异常自动标红提醒</li>
+                            <li>每周输出分析报告，推动业务改进</li>
+                        </ul>
+                        
+                        <div class="project-stats">
+                            <span class="stat-badge">↓5% 运费</span>
+                            <span class="stat-badge">99% 准确率</span>
+                            <span class="stat-badge">7个工厂</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <div class="project-header">
+                        <h3>📈 用户行为数据分析</h3>
+                        <p>基层人力资源调研项目（政府委托）| 2023.09 – 2024.01</p>
+                    </div>
+                    <div class="project-body">
+                        <h4>项目背景</h4>
+                        <p>参与政府委托的基层人力资源调研，负责数据采集、清洗与分析报告撰写。</p>
+                        
+                        <h4>我的工作</h4>
+                        <ul>
+                            <li>负责3500+条问卷数据的清洗与整理</li>
+                            <li>运用SPSS进行数据编码、异常值处理</li>
+                            <li>构建多维度交叉分析模型</li>
+                            <li>产出12组可视化图表</li>
+                            <li>参与撰写3万字分析报告</li>
+                        </ul>
+                        
+                        <div class="project-stats">
+                            <span class="stat-badge">93.2% 回收率</span>
+                            <span class="stat-badge">3500+ 数据</span>
+                            <span class="stat-badge">12组 图表</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 作品展示 -->
+    <section class="section portfolio-section" id="portfolio">
+        <div class="section-container">
+            <h2 class="section-title fade-in">作品展示</h2>
+            
+            <div class="tab-buttons fade-in">
+                <button class="tab-btn active" onclick="showTab('excel')">Excel分析</button>
+                <button class="tab-btn" onclick="showTab('dashboard')">数据看板</button>
+                <button class="tab-btn" onclick="showTab('report')">分析报告</button>
+            </div>
+            
+            <div id="excel" class="tab-content active">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item fade-in" style="cursor:pointer" onclick="window.open('库存周转分析.html','_blank')"><div class="portfolio-img">📊</div><div class="portfolio-info"><h4>库存周转分析</h4>
+                            <p>周转率计算、各产品库存分析、异常识别、数据模拟</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in" style="cursor:pointer" onclick="window.open('销售趋势分析.html','_blank')"><div class="portfolio-img">📈</div><div class="portfolio-info"><h4>销售趋势分析</h4>
+                            <p>年度对比、峰谷分析、节假日关联、补仓决策</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in" style="cursor:pointer" onclick="window.open('缺货预警模型.html','_blank')"><div class="portfolio-img">📉</div><div class="portfolio-info"><h4>缺货预警模型</h4>
+                            <p>预警逻辑、监控看板、数据模拟、物流建议</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="dashboard" class="tab-content">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item fade-in" style="cursor:pointer" onclick="window.open('供应链数据看板.html','_blank')">
+                        <div class="portfolio-img">📊</div>
+                        <div class="portfolio-info">
+                            <h4>供应链数据看板</h4>
+                            <p>产品库存与销售分析看板，包含KPI指标、月度趋势、产品占比、周转率分析</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in" style="cursor:pointer" onclick="window.open('产品E库存监控看板.html','_blank')">
+                        <div class="portfolio-img">📋</div>
+                        <div class="portfolio-info">
+                            <h4>库存监控看板（SKU级）</h4>
+                            <p>SPH×CYL级库存监控，滑动切换5类数据表，红黄绿三级预警，悬停显示差值</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in" style="cursor:pointer" onclick="window.open('销售业绩看板.html','_blank')">
+                        <div class="portfolio-img">📊</div>
+                        <div class="portfolio-info">
+                            <h4>销售业绩看板</h4>
+                            <p>Q4预测 vs 实际对比，YoY增长分析，MAPE准确度评估</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="report" class="tab-content">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item fade-in" style="cursor:pointer" onclick="window.open('月度分析报告.html','_blank')">
+                        <div class="portfolio-img">📄</div>
+                        <div class="portfolio-info">
+                            <h4>月度销售分析报告</h4>
+                            <p>TH区产品销售数据分析，含季节性分析、库存健康度评估</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item fade-in" style="cursor:pointer" onclick="window.open('调查分析报告.html','_blank')">
+                        <div class="portfolio-img">📝</div>
+                        <div class="portfolio-info">
+                            <h4>人力资源状况调查分析报告</h4>
+                            <p>30份问卷数据分析，含交叉分析、SPSS数据接口</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>© 2026 Ada | 数据分析 | 供应链计划</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // 标签切换功能
+        function showTab(tabName) {
+            // 隐藏所有标签内容
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 移除所有按钮的active状态
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // 显示选中的标签内容
+            document.getElementById(tabName).classList.add('active');
+            
+            // 添加按钮的active状态
+            event.target.classList.add('active');
+        }
+        
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 5px 30px rgba(0,0,0,0.15)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+

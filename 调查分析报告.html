@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>某市人力资源状况调查分析报告</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei",sans-serif;background:#f5f7fa;color:#333;font-size:14px;line-height:1.8}
+.cover{background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;padding:80px 20px;text-align:center;min-height:50vh;display:flex;flex-direction:column;justify-content:center}
+.cover h1{font-size:2em;margin-bottom:15px}
+.cover p{opacity:.85;font-size:1.1em;margin-bottom:5px}
+.cover .meta{margin-top:30px;font-size:.9em;opacity:.7}
+.back-btn{position:fixed;top:15px;left:15px;color:#fff;text-decoration:none;font-size:.85em;opacity:.8;border:1px solid rgba(255,255,255,.4);padding:5px 14px;border-radius:20px;z-index:100}
+.container{max-width:960px;margin:0 auto;padding:20px}
+.section{background:#fff;border-radius:10px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
+.sec-head{background:#f0f4ff;padding:14px 20px;border-bottom:1px solid #e0e6f0}
+.sec-head h2{font-size:1.1em;color:#1a73e8}
+.sec-body{padding:20px}
+.finding{background:#e8f4fd;border-left:4px solid #1a73e8;padding:12px 16px;margin:12px 0;border-radius:0 6px 6px 0;font-size:.92em}
+.bar-row{display:flex;align-items:center;gap:10px;margin:6px 0}
+.bar-label{min-width:130px;font-size:.88em;text-align:right;color:#555}
+.bar-track{flex:1;height:22px;background:#f0f0f0;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width .5s}
+.bar-val{min-width:95px;font-size:.85em;color:#666}
+table.data-tbl{width:100%;border-collapse:collapse;font-size:.88em;margin:10px 0}
+table.data-tbl th,table.data-tbl td{padding:8px 10px;text-align:center;border:1px solid #e0e0e0}
+table.data-tbl th{background:#f0f4ff;color:#1a73e8;font-weight:600}
+table.data-tbl tr:nth-child(even){background:#fafafa}
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:15px 0}
+.chart-card{background:#fafafa;border-radius:8px;padding:15px;border:1px solid #eee}
+.chart-card h4{font-size:.95em;color:#333;margin-bottom:10px}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:15px 0}
+.kpi{background:#fff;border-radius:8px;padding:15px;text-align:center;border:1px solid #eee}
+.kpi h3{font-size:1.5em;color:#1a73e8}
+.kpi p{font-size:.8em;color:#888}
+.conclusion{background:#fff3cd;border-left:4px solid #ffc107;padding:15px;margin:15px 0;border-radius:0 6px 6px 0}
+.spss-link{margin-top:8px;text-align:right}
+.spss-link a{font-size:.78em;color:#1a73e8;text-decoration:none;padding:3px 10px;border:1px solid #e0e6f0;border-radius:12px}
+.spss-link a:hover{background:#e8f0fe}
+.footer{text-align:center;padding:30px;color:#999;font-size:.85em}
+@media(max-width:768px){.chart-grid,.kpi-row{grid-template-columns:1fr}.bar-label{min-width:80px;font-size:.8em}}
+</style></head><body>
+
+<div class="cover">
+    <a href="index.html" class="back-btn">← 返回作品集</a>
+    <h1>📋 某市人力资源状况调查分析报告</h1>
+    <p>基于人力资源和社会保障住户居民问卷调查（脱敏数据）</p>
+    <div class="meta">
+        <p>调查样本：30份</p>
+        <p></p>
+    </div>
+</div>
+
+<div class="container">
+
+<div class="section">
+    <div class="sec-head"><h2>一、调查概况</h2></div>
+    <div class="sec-body">
+        <p>本次调查基于人力资源和社会保障基本情况统计调查问卷，选取15个核心问题进行脱敏处理，面向某地级市居民开展人力资源状况调查。共回收有效问卷<strong>30份</strong>，其中在校学生4人（占比13.3%），就业相关指标均已排除学生样本。<br><em style="color:#999;font-size:.85em">（注：本问卷设计及回收数据均为模拟生成，不具有实际统计意义，仅用于展示调研分析能力。点击查看 <a href='调查问卷_脱敏版.html' target='_blank' style="color:#1a73e8">问卷原件</a>）</em></p>
+        <div class="kpi-row">
+            <div class="kpi"><h3>92.3%</h3><p>就业率（排除学生）</p></div>
+            <div class="kpi"><h3>66.7%</h3><p>社保参保率</p></div>
+            <div class="kpi"><h3>57.7%</h3><p>工作满意度（排除学生）</p></div>
+            <div class="kpi"><h3>33.3%</h3><p>培训参与率</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-head"><h2>二、样本人口特征</h2></div>
+    <div class="sec-body">
+        <div class="chart-grid">
+            <div class="chart-card"><h4>📊 性别分布</h4><div class="bar-row"><span class="bar-label">男</span><div class="bar-track"><div class="bar-fill" style="width:43.3%;background:#667eea"></div></div><span class="bar-val">13人 (43.3%)</span></div>
+<div class="bar-row"><span class="bar-label">女</span><div class="bar-track"><div class="bar-fill" style="width:56.7%;background:#667eea"></div></div><span class="bar-val">17人 (56.7%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q01)</a></div></div>
+            <div class="chart-card"><h4>📊 年龄分布</h4><div class="bar-row"><span class="bar-label">16-25岁</span><div class="bar-track"><div class="bar-fill" style="width:16.7%;background:#764ba2"></div></div><span class="bar-val">5人 (16.7%)</span></div>
+<div class="bar-row"><span class="bar-label">26-35岁</span><div class="bar-track"><div class="bar-fill" style="width:16.7%;background:#764ba2"></div></div><span class="bar-val">5人 (16.7%)</span></div>
+<div class="bar-row"><span class="bar-label">36-45岁</span><div class="bar-track"><div class="bar-fill" style="width:26.7%;background:#764ba2"></div></div><span class="bar-val">8人 (26.7%)</span></div>
+<div class="bar-row"><span class="bar-label">46-55岁</span><div class="bar-track"><div class="bar-fill" style="width:13.3%;background:#764ba2"></div></div><span class="bar-val">4人 (13.3%)</span></div>
+<div class="bar-row"><span class="bar-label">56岁及以上</span><div class="bar-track"><div class="bar-fill" style="width:26.7%;background:#764ba2"></div></div><span class="bar-val">8人 (26.7%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q02)</a></div></div>
+        </div>
+        <div class="chart-card" style="margin-top:15px"><h4>📊 学历分布（从低到高）</h4><div class="bar-row"><span class="bar-label">初中及以下</span><div class="bar-track"><div class="bar-fill" style="width:13.3%;background:#ff6b6b"></div></div><span class="bar-val">4人 (13.3%)</span></div>
+<div class="bar-row"><span class="bar-label">高中/中专</span><div class="bar-track"><div class="bar-fill" style="width:16.7%;background:#ff6b6b"></div></div><span class="bar-val">5人 (16.7%)</span></div>
+<div class="bar-row"><span class="bar-label">大专</span><div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#ff6b6b"></div></div><span class="bar-val">12人 (40.0%)</span></div>
+<div class="bar-row"><span class="bar-label">本科</span><div class="bar-track"><div class="bar-fill" style="width:26.7%;background:#ff6b6b"></div></div><span class="bar-val">8人 (26.7%)</span></div>
+<div class="bar-row"><span class="bar-label">硕士及以上</span><div class="bar-track"><div class="bar-fill" style="width:3.3%;background:#ff6b6b"></div></div><span class="bar-val">1人 (3.3%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q03)</a></div></div>
+        <div class="finding"><strong>📌 发现：</strong>样本中女性居多，年龄以36-45岁为主，学历以大专占比最高。</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-head"><h2>三、就业状况分析</h2></div>
+    <div class="sec-body">
+        <div class="chart-grid">
+            <div class="chart-card"><h4>📊 就业状态</h4><div class="bar-row"><span class="bar-label">在职</span><div class="bar-track"><div class="bar-fill" style="width:33.3%;background:#ffd93d"></div></div><span class="bar-val">10人 (33.3%)</span></div>
+<div class="bar-row"><span class="bar-label">灵活就业</span><div class="bar-track"><div class="bar-fill" style="width:36.7%;background:#ffd93d"></div></div><span class="bar-val">11人 (36.7%)</span></div>
+<div class="bar-row"><span class="bar-label">自营个体</span><div class="bar-track"><div class="bar-fill" style="width:10.0%;background:#ffd93d"></div></div><span class="bar-val">3人 (10.0%)</span></div>
+<div class="bar-row"><span class="bar-label">未就业</span><div class="bar-track"><div class="bar-fill" style="width:6.7%;background:#ffd93d"></div></div><span class="bar-val">2人 (6.7%)</span></div>
+<div class="bar-row"><span class="bar-label">在校学生</span><div class="bar-track"><div class="bar-fill" style="width:13.3%;background:#ffd93d"></div></div><span class="bar-val">4人 (13.3%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q04)</a></div></div>
+            <div class="chart-card"><h4>📊 行业分布</h4><div class="bar-row"><span class="bar-label">服务业</span><div class="bar-track"><div class="bar-fill" style="width:37.5%;background:#28a745"></div></div><span class="bar-val">9人 (37.5%)</span></div>
+<div class="bar-row"><span class="bar-label">信息技术</span><div class="bar-track"><div class="bar-fill" style="width:16.7%;background:#28a745"></div></div><span class="bar-val">4人 (16.7%)</span></div>
+<div class="bar-row"><span class="bar-label">批发零售</span><div class="bar-track"><div class="bar-fill" style="width:12.5%;background:#28a745"></div></div><span class="bar-val">3人 (12.5%)</span></div>
+<div class="bar-row"><span class="bar-label">其他</span><div class="bar-track"><div class="bar-fill" style="width:8.3%;background:#28a745"></div></div><span class="bar-val">2人 (8.3%)</span></div>
+<div class="bar-row"><span class="bar-label">农林牧渔</span><div class="bar-track"><div class="bar-fill" style="width:8.3%;background:#28a745"></div></div><span class="bar-val">2人 (8.3%)</span></div>
+<div class="bar-row"><span class="bar-label">餐饮住宿</span><div class="bar-track"><div class="bar-fill" style="width:4.2%;background:#28a745"></div></div><span class="bar-val">1人 (4.2%)</span></div>
+<div class="bar-row"><span class="bar-label">制造业</span><div class="bar-track"><div class="bar-fill" style="width:4.2%;background:#28a745"></div></div><span class="bar-val">1人 (4.2%)</span></div>
+<div class="bar-row"><span class="bar-label">医疗卫生</span><div class="bar-track"><div class="bar-fill" style="width:4.2%;background:#28a745"></div></div><span class="bar-val">1人 (4.2%)</span></div>
+<div class="bar-row"><span class="bar-label">教育</span><div class="bar-track"><div class="bar-fill" style="width:4.2%;background:#28a745"></div></div><span class="bar-val">1人 (4.2%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q05)</a></div></div>
+        </div>
+        <div class="chart-grid">
+            <div class="chart-card"><h4>📊 单位性质</h4><div class="bar-row"><span class="bar-label">民营企业</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#17a2b8"></div></div><span class="bar-val">12人 (50.0%)</span></div>
+<div class="bar-row"><span class="bar-label">个体工商户</span><div class="bar-track"><div class="bar-fill" style="width:29.2%;background:#17a2b8"></div></div><span class="bar-val">7人 (29.2%)</span></div>
+<div class="bar-row"><span class="bar-label">其他</span><div class="bar-track"><div class="bar-fill" style="width:12.5%;background:#17a2b8"></div></div><span class="bar-val">3人 (12.5%)</span></div>
+<div class="bar-row"><span class="bar-label">外资企业</span><div class="bar-track"><div class="bar-fill" style="width:4.2%;background:#17a2b8"></div></div><span class="bar-val">1人 (4.2%)</span></div>
+<div class="bar-row"><span class="bar-label">机关事业单位</span><div class="bar-track"><div class="bar-fill" style="width:4.2%;background:#17a2b8"></div></div><span class="bar-val">1人 (4.2%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q06)</a></div></div>
+            <div class="chart-card"><h4>📊 收入水平/生活费来源</h4><div class="bar-row"><span class="bar-label">3000元以下</span><div class="bar-track"><div class="bar-fill" style="width:20.0%;background:#e84393"></div></div><span class="bar-val">6人 (20.0%)</span></div>
+<div class="bar-row"><span class="bar-label">3000-5000元</span><div class="bar-track"><div class="bar-fill" style="width:20.0%;background:#e84393"></div></div><span class="bar-val">6人 (20.0%)</span></div>
+<div class="bar-row"><span class="bar-label">5000-8000元</span><div class="bar-track"><div class="bar-fill" style="width:36.7%;background:#e84393"></div></div><span class="bar-val">11人 (36.7%)</span></div>
+<div class="bar-row"><span class="bar-label">8000-12000元</span><div class="bar-track"><div class="bar-fill" style="width:10.0%;background:#e84393"></div></div><span class="bar-val">3人 (10.0%)</span></div>
+<div class="bar-row"><span class="bar-label">12000元以上</span><div class="bar-track"><div class="bar-fill" style="width:6.7%;background:#e84393"></div></div><span class="bar-val">2人 (6.7%)</span></div>
+<div class="bar-row"><span class="bar-label">父母支持</span><div class="bar-track"><div class="bar-fill" style="width:6.7%;background:#e84393"></div></div><span class="bar-val">2人 (6.7%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q07)</a></div></div>
+        </div>
+        <div class="chart-card" style="margin-top:15px"><h4>📊 求职渠道</h4><div class="bar-row"><span class="bar-label">亲友介绍</span><div class="bar-track"><div class="bar-fill" style="width:34.6%;background:#fd79a8"></div></div><span class="bar-val">9人 (34.6%)</span></div>
+<div class="bar-row"><span class="bar-label">网络招聘</span><div class="bar-track"><div class="bar-fill" style="width:23.1%;background:#fd79a8"></div></div><span class="bar-val">6人 (23.1%)</span></div>
+<div class="bar-row"><span class="bar-label">公共人力资源服务机构</span><div class="bar-track"><div class="bar-fill" style="width:23.1%;background:#fd79a8"></div></div><span class="bar-val">6人 (23.1%)</span></div>
+<div class="bar-row"><span class="bar-label">自主创业</span><div class="bar-track"><div class="bar-fill" style="width:15.4%;background:#fd79a8"></div></div><span class="bar-val">4人 (15.4%)</span></div>
+<div class="bar-row"><span class="bar-label">其他</span><div class="bar-track"><div class="bar-fill" style="width:3.8%;background:#fd79a8"></div></div><span class="bar-val">1人 (3.8%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q12)</a></div></div>
+        <div class="finding"><strong>📌 发现：</strong>就业人群中，服务业行业占比最高，民营企业为主要就业单位类型。国企/机关单位占比较低，主要通过正规渠道招聘，亲友介绍占比低。</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-head"><h2>四、社会保障与劳动权益</h2></div>
+    <div class="sec-body">
+        <div class="chart-grid">
+            <div class="chart-card"><h4>📊 劳动合同签订情况</h4><div class="bar-row"><span class="bar-label">不适用</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#00b894"></div></div><span class="bar-val">15人 (50.0%)</span></div>
+<div class="bar-row"><span class="bar-label">未签订合同</span><div class="bar-track"><div class="bar-fill" style="width:26.7%;background:#00b894"></div></div><span class="bar-val">8人 (26.7%)</span></div>
+<div class="bar-row"><span class="bar-label">已签订固定期合同</span><div class="bar-track"><div class="bar-fill" style="width:16.7%;background:#00b894"></div></div><span class="bar-val">5人 (16.7%)</span></div>
+<div class="bar-row"><span class="bar-label">已签订无固定期合同</span><div class="bar-track"><div class="bar-fill" style="width:6.7%;background:#00b894"></div></div><span class="bar-val">2人 (6.7%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q08)</a></div></div>
+            <div class="chart-card"><h4>📊 养老保险类型</h4><div class="bar-row"><span class="bar-label">未参加</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#6c5ce7"></div></div><span class="bar-val">15人 (50.0%)</span></div>
+<div class="bar-row"><span class="bar-label">城乡居民基本养老保险</span><div class="bar-track"><div class="bar-fill" style="width:30.0%;background:#6c5ce7"></div></div><span class="bar-val">9人 (30.0%)</span></div>
+<div class="bar-row"><span class="bar-label">商业养老保险</span><div class="bar-track"><div class="bar-fill" style="width:10.0%;background:#6c5ce7"></div></div><span class="bar-val">3人 (10.0%)</span></div>
+<div class="bar-row"><span class="bar-label">城镇职工基本养老保险</span><div class="bar-track"><div class="bar-fill" style="width:10.0%;background:#6c5ce7"></div></div><span class="bar-val">3人 (10.0%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q11)</a></div></div>
+        </div>
+        <div class="chart-card" style="margin-top:15px"><h4>📊 社会保险参保情况（多选）</h4><div class="bar-row"><span class="bar-label">基本医疗保险</span><div class="bar-track"><div class="bar-fill" style="width:66.7%;background:#fdcb6e"></div></div><span class="bar-val">20人 (66.7%)</span></div>
+<div class="bar-row"><span class="bar-label">未参加任何保险</span><div class="bar-track"><div class="bar-fill" style="width:33.3%;background:#fdcb6e"></div></div><span class="bar-val">10人 (33.3%)</span></div>
+<div class="bar-row"><span class="bar-label">基本养老保险</span><div class="bar-track"><div class="bar-fill" style="width:20.0%;background:#fdcb6e"></div></div><span class="bar-val">6人 (20.0%)</span></div>
+<div class="bar-row"><span class="bar-label">失业保险</span><div class="bar-track"><div class="bar-fill" style="width:3.3%;background:#fdcb6e"></div></div><span class="bar-val">1人 (3.3%)</span></div>
+<div class="bar-row"><span class="bar-label">工伤保险</span><div class="bar-track"><div class="bar-fill" style="width:3.3%;background:#fdcb6e"></div></div><span class="bar-val">1人 (3.3%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q09)</a></div></div>
+        <div class="finding"><strong>📌 发现：</strong>社保参保率为66.7%。国企/机关单位员工均享有完整的四险（养老、医疗、失业、工伤），民营企业和灵活就业人员参保率相对较低。</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-head"><h2>五、工作弹性与满意度（排除在校学生）</h2></div>
+    <div class="sec-body">
+        <div class="chart-grid">
+            <div class="chart-card"><h4>📊 每周工作天数</h4><div class="bar-row"><span class="bar-label">1-2天</span><div class="bar-track"><div class="bar-fill" style="width:3.8%;background:#764ba2"></div></div><span class="bar-val">1人 (3.8%)</span></div>
+<div class="bar-row"><span class="bar-label">3-4天</span><div class="bar-track"><div class="bar-fill" style="width:3.8%;background:#764ba2"></div></div><span class="bar-val">1人 (3.8%)</span></div>
+<div class="bar-row"><span class="bar-label">5天</span><div class="bar-track"><div class="bar-fill" style="width:34.6%;background:#764ba2"></div></div><span class="bar-val">9人 (34.6%)</span></div>
+<div class="bar-row"><span class="bar-label">6天</span><div class="bar-track"><div class="bar-fill" style="width:38.5%;background:#764ba2"></div></div><span class="bar-val">10人 (38.5%)</span></div>
+<div class="bar-row"><span class="bar-label">7天</span><div class="bar-track"><div class="bar-fill" style="width:19.2%;background:#764ba2"></div></div><span class="bar-val">5人 (19.2%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q14)</a></div></div>
+            <div class="chart-card"><h4>📊 工作满意度</h4><div class="bar-row"><span class="bar-label">非常满意</span><div class="bar-track"><div class="bar-fill" style="width:7.7%;background:#e17055"></div></div><span class="bar-val">2人 (7.7%)</span></div>
+<div class="bar-row"><span class="bar-label">比较满意</span><div class="bar-track"><div class="bar-fill" style="width:50.0%;background:#e17055"></div></div><span class="bar-val">13人 (50.0%)</span></div>
+<div class="bar-row"><span class="bar-label">一般</span><div class="bar-track"><div class="bar-fill" style="width:15.4%;background:#e17055"></div></div><span class="bar-val">4人 (15.4%)</span></div>
+<div class="bar-row"><span class="bar-label">不太满意</span><div class="bar-track"><div class="bar-fill" style="width:11.5%;background:#e17055"></div></div><span class="bar-val">3人 (11.5%)</span></div>
+<div class="bar-row"><span class="bar-label">非常不满意</span><div class="bar-track"><div class="bar-fill" style="width:15.4%;background:#e17055"></div></div><span class="bar-val">4人 (15.4%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q10)</a></div></div>
+        </div>
+        <div class="chart-grid">
+            <div class="chart-card"><h4>📊 培训参与情况</h4><div class="bar-row"><span class="bar-label">是</span><div class="bar-track"><div class="bar-fill" style="width:33.3%;background:#667eea"></div></div><span class="bar-val">10人 (33.3%)</span></div>
+<div class="bar-row"><span class="bar-label">否</span><div class="bar-track"><div class="bar-fill" style="width:66.7%;background:#667eea"></div></div><span class="bar-val">20人 (66.7%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q13)</a></div></div>
+            <div class="chart-card"><h4>📊 就业政策了解程度</h4><div class="bar-row"><span class="bar-label">了解</span><div class="bar-track"><div class="bar-fill" style="width:30.0%;background:#ff6b6b"></div></div><span class="bar-val">9人 (30.0%)</span></div>
+<div class="bar-row"><span class="bar-label">听说过</span><div class="bar-track"><div class="bar-fill" style="width:43.3%;background:#ff6b6b"></div></div><span class="bar-val">13人 (43.3%)</span></div>
+<div class="bar-row"><span class="bar-label">不了解</span><div class="bar-track"><div class="bar-fill" style="width:26.7%;background:#ff6b6b"></div></div><span class="bar-val">8人 (26.7%)</span></div>
+<div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q15)</a></div></div>
+        </div>
+        <div class="finding"><strong>📌 发现：</strong>工作满意度为57.7%，培训参与率仅33.3%。国企/机关单位普遍实行5天工作制，个体工商户基本每天工作（6-7天）。</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-head"><h2>六、交叉分析：学历与收入</h2></div>
+    <div class="sec-body">
+        <table class="data-tbl"><tr><th>学历 \ 月收入</th><th>3000元以下</th><th>3000-5000元</th><th>5000-8000元</th><th>8000-12000元</th><th>12000元以上</th><th>父母支持</th><th>合计</th></tr><tr><td><strong>初中及以下</strong></td><td>1</td><td>1</td><td>2</td><td>0</td><td>0</td><td>0</td><td><strong>4</strong></td></tr><tr><td><strong>高中/中专</strong></td><td>3</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td><strong>5</strong></td></tr><tr><td><strong>大专</strong></td><td>1</td><td>5</td><td>5</td><td>1</td><td>0</td><td>0</td><td><strong>12</strong></td></tr><tr><td><strong>本科</strong></td><td>1</td><td>0</td><td>3</td><td>2</td><td>1</td><td>1</td><td><strong>8</strong></td></tr><tr><td><strong>硕士及以上</strong></td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td><strong>1</strong></td></tr></table>
+        <div class="spss-link"><a href="问卷数据_SPSS.csv" target="_blank">📊 查看SPSS数据 (Q03×Q07)</a></div>
+        <div class="finding"><strong>📌 发现：</strong>本科及以上学历中，44.4%的人月收入达到8000元以上，说明学历与收入呈正相关。在校学生收入来源主要为父母支持或兼职收入。</div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="sec-head"><h2>七、结论与建议</h2></div>
+    <div class="sec-body">
+        <div class="conclusion">
+            <strong>📋 主要结论：</strong>
+            <ol style="margin-top:8px;padding-left:20px">
+                <li>就业率较高（92.3%，排除在校学生），但灵活就业占比不容忽视</li>
+                <li>社保覆盖率达66.7%，国企/机关单位员工享有完整四险，民营企业和灵活就业人员参保率较低</li>
+                <li>工作满意度为57.7%，仍有提升空间</li>
+                <li>职业培训参与率仅33.3%，需加强培训推广</li>
+                <li>学历与收入呈正相关，教育投入有明显回报</li>
+                <li>就业政策知晓率偏低，宣传力度需加强</li>
+            </ol>
+        </div>
+        <div class="conclusion" style="border-left-color:#28a745;background:#d4edda">
+            <strong>💡 政策建议：</strong>
+            <ol style="margin-top:8px;padding-left:20px">
+                <li>加强职业技能培训宣传，提高培训参与率</li>
+                <li>优化就业政策宣传渠道，提升政策知晓率</li>
+                <li>关注灵活就业群体的社保覆盖问题</li>
+                <li>推动劳动合同规范化，保障劳动者权益</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="footer">
+    <p>某市人力资源状况调查分析报告 </p>
+    <p style="margin-top:5px;font-size:.8em">声明：本问卷设计及回收数据均为模拟生成，不具有实际统计意义，仅用于展示调研分析能力</p>
+</div></body></html>
